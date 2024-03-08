@@ -1,14 +1,67 @@
-<!doctype html>
-<html class="p-0 m-0">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="./style.css" rel="stylesheet">
-  <script type="module" src="script.js"></script>
-</head>
-<body>
-  <h1 class="text-3xl font-bold underline">
-    Hello world!
-  </h1>
-</body>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./style.css" rel="stylesheet" />
+  </head>
+  <body class="p-0 m-0 flex-col justify-center bg-[#252526]">
+    <div class="absolute top-[250px] left-[600px]">
+      <div class="text-center">
+        <span class="text-7xl font-bold text-[#f2f2f2] timer">00:00:00</span>
+      </div>
+      <div class="flex justify-center pt-4">
+        <button
+          type="button"
+          class="bg-[#80a5fc] hover:bg-[#6a89d2] w-24 h-16 mx-2 rounded-lg play"
+        >
+          Play
+        </button>
+        <button
+          type="button"
+          class="bg-[#80a5fc] hover:bg-[#6a89d2] w-24 h-16 mx-2 rounded-lg reset"
+        >
+          Reset
+        </button>
+        <button
+          type="button"
+          class="bg-[#80a5fc] hover:bg-[#6a89d2] w-24 h-16 mx-2 rounded-lg lap"
+        >
+          Lap
+        </button>
+      </div>
+      <div>
+        <ul class="overflow-auto">
+          <li class="text-[#f2f2f2] text-4xl pb-4 pt-6 flex justify-center">
+            <span>1.</span><span class="ml-10">00:10:25</span>
+          </li>
+          <li class="text-[#f2f2f2] text-4xl py-4 flex justify-center">
+            <span>1.</span><span class="ml-10">00:10:25</span>
+          </li>
+          <li class="text-[#f2f2f2] text-4xl py-4 flex justify-center">
+            <span>1.</span><span class="ml-10">00:10:25</span>
+          </li>
+          <li class="text-[#f2f2f2] text-4xl py-4 flex justify-center">
+            <span>1.</span><span class="ml-10">00:10:25</span>
+          </li>
+          <li class="text-[#f2f2f2] text-4xl py-4 flex justify-center">
+            <span>1.</span><span class="ml-10">00:10:25</span>
+          </li>
+          <li class="text-[#f2f2f2] text-4xl py-4 flex justify-center">
+            <span>1.</span><span class="ml-10">00:10:25</span>
+          </li>
+          <li class="text-[#f2f2f2] text-4xl py-4 flex justify-center">
+            <span>1.</span><span class="ml-10">00:10:25</span>
+          </li>
+          <li class="text-[#f2f2f2] text-4xl py-4 flex justify-center">
+            <span>1.</span><span class="ml-10">00:10:25</span>
+          </li>
+          <li class="text-[#f2f2f2] text-4xl py-4 flex justify-center">
+            <span>1.</span><span class="ml-10">00:10:25</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
 </html>
