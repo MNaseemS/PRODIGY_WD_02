@@ -26,7 +26,7 @@ playButton.addEventListener("click", () => {
 });
 
 resetButton.addEventListener("click", () => {
-    playButton.innerHTML = "Play"
+    playButton.innerHTML = "Play";
     paused = true;
 
     clearInterval(intervalId);
