@@ -1,38 +1,52 @@
-const timeDisplay = document.getElementsByClassName("timer")[0];
-const playButton = document.getElementsByClassName("play")[0];
-const resetButton = document.getElementsByClassName("reset")[0];
-const lapButton = document.getElementsByClassName("lap")[0];
+const timeDisplay = document.querySelector("#timer");
+const playButton = document.querySelector("#play");
+const resetButton = document.querySelector("#reset");
 
-let isPlay = false;
 let startTime = 0;
-let elapseTime = 0;
+let elapsedTime = 0;
 let currentTime = 0;
+let paused = true;
+let intervalId;
 let hrs = 0;
 let mins = 0;
 let secs = 0;
-let intervalID;
-
-const reset = () => {};
 
 playButton.addEventListener("click", () => {
-	if (!isPlay) {
+    if (paused) {
         playButton.innerHTML = "Pause";
-        isPlay = true;
-        startTime = Date.now() - elapseTime;
-		intervalID = setInterval(updateTime, 75)
+        paused = false;
+        startTime = Date.now() - elapsedTime;
+        intervalId = setInterval(updateTime, 75);
     } else {
         playButton.innerHTML = "Play";
-        isPlay = false;
+        paused = true;
+        elapsedTime = Date.now() - startTime;
+        clearInterval(intervalId);
     }
 });
-resetButton.addEventListener("click", reset);
+
+resetButton.addEventListener("click", () => {
+    playButton.innerHTML = "Play"
+    paused = true;
+
+    clearInterval(intervalId);
+
+    startTime = 0;
+    elapsedTime = 0;
+    currentTime = 0;
+
+    hrs = 0;
+    mins = 0;
+    secs = 0;
+
+    timeDisplay.textContent = "00:00:00";
+});
 
 function updateTime() {
-    elapseTime = Data.now() - startTime;
-
-    secs = Math.floor((elapseTime / 1000) % 60);
-    mins = Math.floor((elapseTime / (1000 * 60)) % 60);
-    hrs = Math.floor((elapseTime / (1000 * 60 * 60)) % 60);
+    elapsedTime = Date.now() - startTime;
+    secs = Math.floor((elapsedTime / 1000) % 60);
+    mins = Math.floor((elapsedTime / (1000 * 60)) % 60);
+    hrs = Math.floor((elapsedTime / (1000 * 60 * 60)) % 60);
 
     secs = pad(secs);
     mins = pad(mins);
@@ -40,7 +54,7 @@ function updateTime() {
 
     timeDisplay.textContent = `${hrs}:${mins}:${secs}`;
 
-    const pad = (unit) => {
+    function pad(unit) {
         return ("0" + unit).length > 2 ? unit : "0" + unit;
-    };
-};
+    }
+}
